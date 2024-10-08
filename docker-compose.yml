@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  angular-app:
+    build: .
+    ports:
+      - "4200:4200"
+    volumes:
+      # Mount only what is necessary for development
+      - ./src:/app/src
+      - ./angular.json:/app/angular.json
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json

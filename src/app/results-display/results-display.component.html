@@ -1,0 +1,28 @@
+<mat-card *ngIf="results" class="result-card">
+  <h2>Estimations de Rendement</h2>
+  <p>
+    Voici vos rendements estimés sur une durée de 3 ans, calculés sur la base
+    des informations fournies.
+  </p>
+  <table class="result-table">
+    <colgroup>
+      <col style="width: 20%" />
+      <col style="width: 40%" />
+      <col style="width: 40%" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Année</th>
+        <th>Revenu Net Mensuel</th>
+        <th>Rendement Annuel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of results">
+        <td>{{ res.annee }}</td>
+        <td>{{ res.revenuNetMensuel | currency : "EUR" }}</td>
+        <td>{{ res.rendementAnnuel | percent : "1.2-2" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>

@@ -1,0 +1,27 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Prix d'achat du bien immobilier</mat-label>
+      <input matInput type="number" formControlName="prixAchat" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Montant du loyer mensuel</mat-label>
+      <input matInput type="number" formControlName="loyerMensuel" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Charges locatives annuelles</mat-label>
+      <input matInput type="number" formControlName="chargesAnnuelles" />
+    </mat-form-field>
+    <br />
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Calculer
+    </button>
+  </form>
+</mat-card>
