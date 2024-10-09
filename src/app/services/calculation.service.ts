@@ -5,21 +5,23 @@ import { Injectable } from "@angular/core";
 })
 export class CalculationService {
   calculateRendement(data: any): any[] {
-    const { prixAchat, loyerMensuel, chargesAnnuelles } = data;
-    const fraisAgence = [0.3, 0.25, 0.2];
+    const { buyPrice, monthlyRent, annualCharges } = data;
+    const agencyFees = [0.3, 0.25, 0.2];
     const results = [];
+    const span = 3;
 
-    for (let i = 0; i < 3; i++) {
-      const annee = i + 1;
-      const frais = loyerMensuel * 12 * fraisAgence[i];
-      const revenuNetAnnuel = loyerMensuel * 12 - frais - chargesAnnuelles;
-      const rendementAnnuel = revenuNetAnnuel / prixAchat;
-      const revenuNetMensuel = revenuNetAnnuel / 12;
+    for (let i = 0; i < span; i++) {
+      const year = i + 1;
+      if (i > agencyFees.length) break;
+      const frais = monthlyRent * 12 * agencyFees[i];
+      const netAnnualIncome = monthlyRent * 12 - frais - annualCharges;
+      const annualYield = netAnnualIncome / buyPrice;
+      const netMontlyIncome = netAnnualIncome / 12;
 
       results.push({
-        annee,
-        revenuNetMensuel,
-        rendementAnnuel,
+        year,
+        netMontlyIncome,
+        annualYield,
       });
     }
 

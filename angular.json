@@ -86,7 +86,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/",
+            "baseHref": "/Dev-test-Emerald-Stay/",
             "repo": "https://github.com/Bazouz660/Dev-test-Emerald-Stay.git",
             "branch": "gh-pages",
             "message": "Deploy Angular App to GitHub Pages"
